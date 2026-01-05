@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-
-{% block title %}Início - RH System{% endblock %}
-
 {% block conteudo %}
-<div class="jumbotron shadow-sm text-center bg-white border">
-    <h1 class="display-4" style="color: #F55B64;"><strong>RH</strong>Marcos</h1>
-    <p class="lead">Bem-vindo ao sistema de gerenciamento de colaboradores.</p>
-    <hr class="my-4">
-    <div class="d-flex justify-content-center">
-        <a class="btn btn-primary btn-lg px-5 mx-2" href="{% url 'website:lista_funcionarios' %}" role="button" style="background-color: #F55B64; border: none; border-radius: 25px;">
-            Ver Funcionários
-        </a>
-        <a class="btn btn-outline-secondary btn-lg px-5 mx-2" href="{% url 'website:cadastra_funcionario' %}" role="button" style="border-radius: 25px;">
-            Novo Cadastro
-        </a>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card p-5 h-100">
+            <h4 class="font-weight-bold">Cadastrar Funcionário</h4>
+            <p>Cadastre aqui um novo <span class="text-pink">Funcionário</span>.</p>
+            <a href="{% url 'website:cadastra_funcionario' %}" class="btn btn-primary-rh mt-auto align-self-start">Novo Funcionário</a>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card p-5 h-100">
+            <h4 class="font-weight-bold">Lista de Funcionários</h4>
+            <p>Veja aqui a lista de <span class="text-pink">Funcionários</span> cadastrados.</p>
+            <a href="{% url 'website:lista_funcionarios' %}" class="btn btn-primary-rh mt-auto align-self-start">Vá para Lista</a>
+        </div>
     </div>
 </div>
 {% endblock %}

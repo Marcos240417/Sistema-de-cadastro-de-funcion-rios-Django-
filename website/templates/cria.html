@@ -1,22 +1,52 @@
-{% extends "base.html" %} {% block conteudo %}
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{% if object %}Atualizar{% else %}Cadastrar{% endif %} Funcionário</h5>
-                <div class="linha-pontilhada"></div>
+{% extends "base.html" %}
 
-                <form method="post">
-                    {% csrf_token %} <div class="form-group">
-                        {{ form.as_p }} </div>
-                    <hr>
-                    <div class="text-right">
-                        <a href="{% url 'website:lista_funcionarios' %}" class="btn btn-light">Cancelar</a>
-                        <button type="submit" class="btn btn-primary px-4">Salvar</button>
-                    </div>
-                </form>
+{% block conteudo %}
+<div class="card-cadastro">
+    <h3 class="titulo-cadastro">Cadastro de Funcionário</h3>
+    <p class="subtitulo-cadastro">Complete o formulário abaixo para cadastrar um novo <span>Funcionário</span>.</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nome</span>
             </div>
+            <input type="text" name="nome" class="form-control" value="{{ form.nome.value|default:'' }}">
         </div>
-    </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Sobrenome</span>
+            </div>
+            <input type="text" name="sobrenome" class="form-control" value="{{ form.sobrenome.value|default:'' }}">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">CPF</span>
+            </div>
+            <input type="text" name="cpf" class="form-control" placeholder="123.456.789-00" value="{{ form.cpf.value|default:'' }}">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Tempo de Serviço</span>
+            </div>
+            <input type="number" name="tempo_de_servico" class="form-control" value="{{ form.tempo_de_servico.value|default:0 }}">
+        </div>
+
+        <div class="input-group mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Remuneração</span>
+            </div>
+            <input type="number" step="0.01" name="remuneracao" class="form-control" value="{{ form.remuneracao.value|default:'' }}">
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+            <a href="{% url 'website:lista_funcionarios' %}" class="btn btn-voltar mr-2">Voltar</a>
+            <button type="submit" class="btn btn-enviar">Enviar</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Início - RH System{% endblock %}
+
+{% block conteudo %}
+<div class="jumbotron shadow-sm text-center bg-white border">
+    <h1 class="display-4" style="color: #F55B64;"><strong>RH</strong>Marcos</h1>
+    <p class="lead">Bem-vindo ao sistema de gerenciamento de colaboradores.</p>
+    <hr class="my-4">
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-primary btn-lg px-5 mx-2" href="{% url 'website:lista_funcionarios' %}" role="button" style="background-color: #F55B64; border: none; border-radius: 25px;">
+            Ver Funcionários
+        </a>
+        <a class="btn btn-outline-secondary btn-lg px-5 mx-2" href="{% url 'website:cadastra_funcionario' %}" role="button" style="border-radius: 25px;">
+            Novo Cadastro
+        </a>
+    </div>
+</div>
+{% endblock %}

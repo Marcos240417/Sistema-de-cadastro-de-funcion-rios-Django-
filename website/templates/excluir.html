@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block conteudo %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-body">
+                <h5 class="text-danger">Excluir Registro</h5>
+                <div class="linha-pontilhada"></div>
+                <p>Você tem certeza que deseja excluir o funcionário <strong>{{ funcionario.nome }}</strong>?</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="text-right mt-4">
+                        <a href="{% url 'website:lista_funcionarios' %}" class="btn btn-light">Não, voltar</a>
+                        <button type="submit" class="btn btn-danger px-4">Sim, excluir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
